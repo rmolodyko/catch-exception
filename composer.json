@@ -1,0 +1,23 @@
+{
+    "name": "satori/catch-exception",
+    "type": "library",
+    "license": "MIT",
+    "description": "Catch exception",
+    "keywords": ["exception", "catch", "error", "json"],
+    "homepage": "http://samsonos.com",
+    "minimum-stability": "dev",
+    "authors": [
+        {"name": "Ruslan Molodyko", "email": "molodyko13@gmail.com"}
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Satori\\CatchException\\" : "src/"
+        }
+    }
+}
