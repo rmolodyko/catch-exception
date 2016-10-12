@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 trait CatchExceptionTrait
 {
     /**
-     * Create and send error message immediately
+     * Create and send error message immediately when condition is false
      *
      * @param bool $condition Condition which indicates that error was happened
      * @param string $error Error text
@@ -27,9 +27,24 @@ trait CatchExceptionTrait
      * @param array $opt
      * @throws CatchResponseException
      */
-    public function error($condition, $error, $status = 500, array $opt = [])
+    public function need($condition, $error, $status = 404, array $opt = []) {
+        $this->error(!$condition, $error, $status, $opt);
+    }
+
+
+    /**
+     * Create and send error message immediately when condition is true
+     * Trigger me when TRUE
+     *
+     * @param bool $condition Condition which indicates that error was happened
+     * @param string $error Error text
+     * @param int $status Status code for response
+     * @param array $opt
+     * @throws CatchResponseException
+     */
+    public function error($condition, $error, $status = 404, array $opt = [])
     {
-        // When condition is true send error
+        // When condition is false send error
         if ($condition) {
 
             // Init options
